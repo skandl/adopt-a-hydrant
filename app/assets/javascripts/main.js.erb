@@ -408,6 +408,7 @@ $(function() {
             activeMarker.setAnimation(google.maps.Animation.BOUNCE);
           }
         });
+        updateMyHydrantList();
       }
     });
     return false;
@@ -451,6 +452,7 @@ $(function() {
               activeMarker.setAnimation(null);
             }
           });
+          updateMyHydrantList();
         }
       });
     }
@@ -594,6 +596,38 @@ $(function() {
     }
     return false;
   });
+  var updateMyHydrantList = function() {
+    console.log("Sending POST to things");
+    $.ajax({
+      type: 'GET',
+      url: '/hydrants',
+      error: function(jqXHR) {
+        console.log("err");
+        console.log(jqXHR);
+      },
+      success: function(data) {
+        // console.log("setting val");
+        // console.log(data);
+
+        $('.my-hydrants-list').empty();
+        if (data && data.length > 0) {
+          for (var i=0; i<data.length; i++) {
+            $('.my-hydrants-list').append('<li class=\'list-group-item\'> '+ data[i].name + '</li>');
+          }
+        } else {
+            $('.my-hydrants-list').append('No hydrants adopted yet.');
+          }
+      }
+    });
+
+  };
+  $('#my_hydrants').live('click', function() {
+    updateMyHydrantList();
+    return false;
+  });
+  updateMyHydrantList();  
+
+
   $('#sign_out_link').live('click', function() {
     var link = $(this);
     $(link).addClass('disabled');

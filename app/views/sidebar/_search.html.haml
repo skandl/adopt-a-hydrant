@@ -6,6 +6,12 @@
   %fieldset.control-group
     = label_tag "address", t("labels.address"), :id => "address_label"
     = search_field_tag "address", params[:address], :placeholder => [t("defaults.address_1"), t("defaults.neighborhood")].join(", "), :class => "search-query"
+
+  %fieldset.control-group
+    = label_tag "address", t("labels.hydrants"), :id => "hydrants_label"
+    %ul.my-hydrants-list.list-group
+      #my-hydrants-list
+
   %fieldset.form-actions
     = submit_tag t("buttons.find", :thing => t("defaults.thing").pluralize), :class => "btn btn-primary"
     %a{:href => edit_user_registration_path, :id => "edit_profile_link", :class => "btn"}

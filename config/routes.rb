@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   resource :reminders
   resource :things
+  resources :hydrants, only: [:index]
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   root to: 'main#index'
 end

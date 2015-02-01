@@ -13,6 +13,7 @@ en:
     send_reminder: "Send reminder to shovel"
     sign_in: "Sign in"
     sign_out: "Sign out"
+    my_hydrants: "My Hydrants"
     sign_up: "Sign up"
     update: "Update"
   captions:
@@ -45,6 +46,7 @@ en:
     city: "City"
     city_state: "City"
     email: "Email address"
+    hydrants: "My Hydrants"
     name: "Name"
     name_thing: "Give this %{thing} a name"
     organization: "Organization"
